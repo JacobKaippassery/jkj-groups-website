@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JKJ Christian Goods — Online & Custom-Order Christian Goods</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#10182B;
+    --ink-2:#1A2540;
+    --ink-3:#212F52;
+    --paper:#F1EEE5;
+    --cream:#F7F5EF;
+    --brass:#C9A24B;
+    --sky:#48B4E6;
+    --accent:#8C5A79;
+    --accent-dim:#4E3546;
+    --accent-tint:#D2AFC6;
+    --line: rgba(247,245,239,0.14);
+    --max: 1120px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--ink); color:var(--cream); font-family:'Public Sans', sans-serif; font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased;}
+  h1,h2,h3,h4{font-family:'Fraunces', serif; font-weight:500; margin:0; letter-spacing:-0.01em;}
+  p{margin:0;}
+  a{color:inherit; text-decoration:none;}
+  ul{margin:0; padding:0; list-style:none;}
+  button{font-family:inherit;}
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible{outline:2px solid var(--accent-tint); outline-offset:3px;}
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 32px;}
+
+  .site-nav{position:sticky; top:0; z-index:50; background:rgba(16,24,43,0.9); backdrop-filter:blur(10px); border-bottom:1px solid var(--line);}
+  .site-nav .wrap{display:flex; align-items:center; justify-content:space-between; height:76px;}
+  .brand{font-family:'Fraunces', serif; font-size:1.2rem; font-weight:600; display:flex; align-items:center; gap:10px;}
+  .brand-mark{width:30px;height:30px;border-radius:50%;border:1.5px solid #FFFFFF;background:var(--sky);display:flex;align-items:center;justify-content:center;font-size:0.56rem;letter-spacing:-0.02em;font-family:'Public Sans', sans-serif;font-weight:700;color:#FFFFFF;}
+  .nav-links{display:flex; gap:34px; font-size:0.95rem;}
+  .nav-links a{color:var(--cream); opacity:0.82; transition:opacity 0.15s ease; padding:4px 2px; border-bottom:1px solid transparent;}
+  .nav-links a:hover{opacity:1; border-bottom-color:var(--accent-tint);}
+  .nav-cta{border:1px solid var(--accent-tint); color:var(--accent-tint); padding:9px 18px; border-radius:2px; font-size:0.9rem; transition:background 0.15s ease, color 0.15s ease; white-space:nowrap;}
+  .nav-cta:hover{background:var(--accent-tint); color:var(--ink);}
+  .nav-toggle{display:none; background:none; border:none; color:var(--cream);}
+
+  .hub-strip{background:var(--ink-2); border-bottom:1px solid var(--line); font-size:0.82rem; color:rgba(247,245,239,0.65); padding:8px 0;}
+  .hub-strip .wrap{display:flex; align-items:center; gap:8px;}
+  .hub-strip a{color:var(--brass);}
+  .hub-strip a:hover{text-decoration:underline;}
+
+  .hero{padding:92px 0 84px; border-bottom:1px solid var(--line); overflow:hidden;}
+  .hero .wrap{display:grid; grid-template-columns:1.05fr 0.95fr; gap:56px; align-items:center;}
+  .hero-eyebrow{color:var(--accent-tint); font-size:0.92rem; margin-bottom:22px; max-width:34ch;}
+  .hero h1{font-size:clamp(2.2rem, 4vw, 3.4rem); line-height:1.1; max-width:15ch;}
+  .hero-sub{margin-top:24px; font-size:1.08rem; max-width:46ch; color:rgba(247,245,239,0.82);}
+  .hero-actions{margin-top:34px; display:flex; gap:16px; flex-wrap:wrap;}
+  .btn-primary{background:var(--accent); color:#F9F0F6; padding:14px 26px; border-radius:2px; font-weight:600; font-size:0.98rem; transition:background 0.15s ease;}
+  .btn-primary:hover{background:#7A4B67;}
+  .btn-ghost{border:1px solid var(--line); padding:14px 26px; border-radius:2px; font-size:0.98rem; transition:border-color 0.15s ease;}
+  .btn-ghost:hover{border-color:var(--accent-tint);}
+
+  .hero-art{position:relative; aspect-ratio:1/1; display:flex; align-items:center; justify-content:center;}
+  .hero-art svg{width:78%; height:78%;}
+
+  section{padding:88px 0;}
+  .section-head{max-width:56ch; margin-bottom:52px;}
+  .section-head .kicker{color:var(--accent-tint); font-size:0.9rem; margin-bottom:14px; display:block;}
+  .section-head h2{font-size:clamp(1.75rem, 3vw, 2.3rem); line-height:1.15;}
+  .section-head p{margin-top:16px; font-size:1.03rem; color:rgba(247,245,239,0.78);}
+
+  .categories{background:var(--ink-2); border-bottom:1px solid var(--line);}
+  .cat-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:22px;}
+  .cat-card{border:1px solid var(--line); border-radius:4px; overflow:hidden; background:var(--ink);}
+  .cat-visual{aspect-ratio:1/1; display:flex; align-items:center; justify-content:center; background:linear-gradient(155deg, var(--accent-dim), var(--ink-3));}
+  .cat-visual svg{width:44%; height:44%;}
+  .cat-card h3{font-size:1.05rem; padding:18px 18px 6px;}
+  .cat-card p{font-size:0.88rem; color:rgba(247,245,239,0.68); padding:0 18px 20px;}
+
+  .custom{}
+  .custom .wrap{display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center;}
+  .custom-body p{font-size:1.03rem; color:rgba(247,245,239,0.85);}
+  .custom-body p + p{margin-top:16px;}
+  .custom-steps{display:grid; gap:20px;}
+  .custom-step{display:grid; grid-template-columns:auto 1fr; gap:18px; align-items:start;}
+  .custom-step .num{font-family:'Fraunces', serif; font-size:1.3rem; color:var(--accent-tint);}
+  .custom-step h4{font-size:1.05rem; margin-bottom:6px;}
+  .custom-step p{font-size:0.92rem; color:rgba(247,245,239,0.72);}
+
+  .values{background:var(--paper); color:var(--ink); border-bottom:1px solid rgba(16,24,43,0.1);}
+  .values .section-head p{color:rgba(16,24,43,0.68);}
+  .values .section-head .kicker{color:var(--accent-dim);}
+  .values-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:36px;}
+  .value-item{border-top:1px solid rgba(16,24,43,0.14); padding-top:18px;}
+  .value-item h4{font-size:1.1rem; margin-bottom:8px;}
+  .value-item p{font-size:0.95rem; color:rgba(16,24,43,0.68);}
+
+  .contact .wrap{display:grid; grid-template-columns:0.85fr 1.15fr; gap:60px;}
+  .contact-info-item{margin-bottom:26px;}
+  .contact-info-item h4{font-size:1rem; margin-bottom:6px; color:var(--accent-tint);}
+  .contact-info-item p{color:rgba(247,245,239,0.8); font-size:0.98rem;}
+  form{display:grid; gap:18px;}
+  .form-row{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
+  label{display:block; font-size:0.85rem; color:rgba(247,245,239,0.7); margin-bottom:7px;}
+  input,textarea,select{width:100%; background:var(--ink-2); border:1px solid var(--line); color:var(--cream); padding:12px 14px; border-radius:2px; font-family:inherit; font-size:0.95rem;}
+  textarea{resize:vertical; min-height:100px;}
+  .form-submit{background:var(--accent); color:#F9F0F6; border:none; padding:14px 26px; border-radius:2px; font-weight:600; font-size:0.98rem; cursor:pointer; justify-self:start; transition:background 0.15s ease;}
+  .form-submit:hover{background:#7A4B67;}
+  .form-note{font-size:0.82rem; color:rgba(247,245,239,0.5); margin-top:-4px;}
+
+  .site-footer{padding:40px 0 30px; border-top:1px solid var(--line);}
+  .footer-top{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; font-size:0.86rem; color:rgba(247,245,239,0.55); padding-bottom:26px; border-bottom:1px solid var(--line); margin-bottom:20px;}
+  .footer-links{display:flex; gap:22px;}
+  .footer-links a{opacity:0.75;}
+  .footer-links a:hover{opacity:1;}
+  .footer-family{font-size:0.82rem; color:rgba(247,245,239,0.5); display:flex; flex-wrap:wrap; gap:6px 18px; align-items:center;}
+  .footer-family a{color:var(--brass); opacity:1;}
+  .footer-family a:hover{text-decoration:underline;}
+
+  @media (max-width:900px){
+    .hero .wrap{grid-template-columns:1fr; gap:40px;}
+    .hero-art{max-width:340px; margin:0 auto;}
+    .cat-grid{grid-template-columns:1fr 1fr;}
+    .custom .wrap{grid-template-columns:1fr; gap:32px;}
+    .values-grid{grid-template-columns:1fr; gap:24px;}
+    .contact .wrap{grid-template-columns:1fr; gap:36px;}
+    .form-row{grid-template-columns:1fr;}
+  }
+  @media (max-width:680px){
+    .wrap{padding:0 20px;}
+    .nav-links{position:absolute; top:76px; left:0; right:0; background:var(--ink); flex-direction:column; gap:0; border-bottom:1px solid var(--line); display:none; padding:8px 20px 18px;}
+    .nav-links.open{display:flex;}
+    .nav-links a{padding:12px 0; width:100%; border-bottom:1px solid var(--line);}
+    .nav-cta{display:none;}
+    .nav-toggle{display:block;}
+    .cat-grid{grid-template-columns:1fr 1fr;}
+  }
+</style>
+</head>
+<body>
+
+<div class="hub-strip"><div class="wrap">Part of <a href="https://jkjgroups.com">JKJ Groups</a> — technology, Christian goods & transportation, together.</div></div>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a href="#top" class="brand">
+      <span class="brand-mark">JKJ</span>
+      JKJ Christian Goods
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#shop">Shop</a></li>
+      <li><a href="#custom">Custom Orders</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div style="display:flex; align-items:center; gap:18px;">
+      <a href="#shop" class="nav-cta">Shop now</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <span class="hero-eyebrow">JKJ Christian Goods — the goods division of JKJ Groups</span>
+      <h1>Christian goods, chosen with care</h1>
+      <p class="hero-sub">Bibles, devotionals, crosses, home décor, and gifts — available through our online store or made to order for something specific.</p>
+      <div class="hero-actions">
+        <a href="#shop" class="btn-primary">Browse categories</a>
+        <a href="#custom" class="btn-ghost">Request a custom order</a>
+      </div>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <line x1="100" y1="30" x2="100" y2="160" stroke="#D2AFC6" stroke-width="2.2"/>
+        <line x1="55" y1="70" x2="145" y2="70" stroke="#D2AFC6" stroke-width="2.2"/>
+        <circle cx="100" cy="30" r="5" fill="#D2AFC6"/>
+        <circle cx="100" cy="160" r="5" fill="#D2AFC6"/>
+        <circle cx="55" cy="70" r="4" fill="#D2AFC6"/>
+        <circle cx="145" cy="70" r="4" fill="#D2AFC6"/>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<section class="categories" id="shop">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Shop by category</span>
+      <h2>What we carry</h2>
+      <p>A curated selection, not an overwhelming catalog — each category chosen with the same care as a special occasion.</p>
+    </div>
+    <div class="cat-grid">
+      <div class="cat-card">
+        <div class="cat-visual"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect x="28" y="20" width="44" height="60" rx="2" fill="none" stroke="#D2AFC6" stroke-width="2"/><line x1="36" y1="34" x2="64" y2="34" stroke="#D2AFC6" stroke-width="1.6"/><line x1="36" y1="44" x2="64" y2="44" stroke="#D2AFC6" stroke-width="1.6"/><line x1="36" y1="54" x2="56" y2="54" stroke="#D2AFC6" stroke-width="1.6"/></svg></div>
+        <h3>Bibles & Devotionals</h3>
+        <p>Everyday reading and reference editions, in a range of translations and bindings.</p>
+      </div>
+      <div class="cat-card">
+        <div class="cat-visual"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><line x1="50" y1="18" x2="50" y2="82" stroke="#D2AFC6" stroke-width="2.4"/><line x1="28" y1="36" x2="72" y2="36" stroke="#D2AFC6" stroke-width="2.4"/></svg></div>
+        <h3>Crosses & Home Décor</h3>
+        <p>Wall pieces and everyday décor for the home, in wood, metal, and ceramic finishes.</p>
+      </div>
+      <div class="cat-card">
+        <div class="cat-visual"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect x="30" y="38" width="40" height="34" rx="2" fill="none" stroke="#D2AFC6" stroke-width="2"/><path d="M30,38 L50,52 L70,38" fill="none" stroke="#D2AFC6" stroke-width="2"/><line x1="50" y1="28" x2="50" y2="38" stroke="#D2AFC6" stroke-width="2"/></svg></div>
+        <h3>Gifts & Apparel</h3>
+        <p>Thoughtful gifts for baptisms, confirmations, and everyday encouragement.</p>
+      </div>
+      <div class="cat-card">
+        <div class="cat-visual"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="24" fill="none" stroke="#D2AFC6" stroke-width="2"/><path d="M50,32 L50,50 L62,58" stroke="#D2AFC6" stroke-width="2" fill="none"/></svg></div>
+        <h3>Custom & Special Orders</h3>
+        <p>Something specific in mind? We source and personalize pieces on request.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="custom" id="custom">
+  <div class="wrap">
+    <div class="custom-body">
+      <span class="hero-eyebrow" style="margin-bottom:18px; display:block;">Custom orders</span>
+      <h2 style="font-size:clamp(1.7rem,3vw,2.2rem); margin-bottom:20px;">Looking for something specific?</h2>
+      <p>Not every meaningful gift is sitting on a shelf. If you have an occasion, a parish, or a person in mind, we'll help source or personalize the right piece.</p>
+      <p>Most custom requests are confirmed within 2–3 business days, with a clear price before we begin.</p>
+    </div>
+    <div class="custom-steps">
+      <div class="custom-step">
+        <span class="num">01</span>
+        <div><h4>Tell us what you need</h4><p>Send a message with the occasion, budget, and any specifics.</p></div>
+      </div>
+      <div class="custom-step">
+        <span class="num">02</span>
+        <div><h4>We source or personalize</h4><p>We find the right piece or arrange personalization — engraving, sizing, etc.</p></div>
+      </div>
+      <div class="custom-step">
+        <span class="num">03</span>
+        <div><h4>Delivered or ready for pickup</h4><p>Shipped to you, or held for local pickup in Elmhurst.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="values" id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">About JKJ Christian Goods</span>
+      <h2>Chosen with care, not mass-produced</h2>
+    </div>
+    <div class="values-grid">
+      <div class="value-item">
+        <h4>Thoughtfully sourced</h4>
+        <p>We pick items we'd actually give as gifts ourselves — not whatever is cheapest to stock.</p>
+      </div>
+      <div class="value-item">
+        <h4>Personal service</h4>
+        <p>Questions get answered by a person, not a chatbot — especially for custom and special orders.</p>
+      </div>
+      <div class="value-item">
+        <h4>Part of something bigger</h4>
+        <p>JKJ Christian Goods is one part of JKJ Groups, alongside our technology and transportation divisions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div>
+      <div class="section-head" style="margin-bottom:32px;">
+        <span class="kicker">Get in touch</span>
+        <h2>Ask a question or start a custom order</h2>
+        <p>We typically reply within one business day.</p>
+      </div>
+      <div class="contact-info-item">
+        <h4>Email</h4>
+        <p>hello@jkjgroups.store</p>
+      </div>
+      <div class="contact-info-item">
+        <h4>Phone</h4>
+        <p>(555) 555-0142</p>
+      </div>
+      <div class="contact-info-item">
+        <h4>Local pickup</h4>
+        <p>Elmhurst, IL — by appointment</p>
+      </div>
+    </div>
+    <form id="contactForm">
+      <div class="form-row">
+        <div>
+          <label for="name">Full name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+      </div>
+      <div>
+        <label for="interest">I'm interested in</label>
+        <select id="interest" name="interest">
+          <option>Bibles & devotionals</option>
+          <option>Crosses & home décor</option>
+          <option>Gifts & apparel</option>
+          <option>A custom or special order</option>
+        </select>
+      </div>
+      <div>
+        <label for="message">Message</label>
+        <textarea id="message" name="message" required></textarea>
+      </div>
+      <button type="submit" class="form-submit">Send message</button>
+      <p class="form-note">This form is a working layout only — connect it to email or a form service before publishing.</p>
+    </form>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <a href="#top" class="brand">
+        <span class="brand-mark">JKJ</span>
+        JKJ Christian Goods
+      </a>
+      <div class="footer-links">
+        <a href="#top">Back to top</a>
+        <a href="#shop">Shop</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+    <div class="footer-family">
+      <span>© 2026 JKJ Christian Goods, part of JKJ Groups.</span>
+      <a href="https://jkjgroups.com">JKJ Groups</a>
+      <a href="https://jkjgroups.net">JKJ Technology</a>
+      <a href="https://jkjgroups.info">JKJ Rides</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('navToggle').addEventListener('click', function(){
+    var links = document.getElementById('navLinks');
+    var open = links.classList.toggle('open');
+    this.setAttribute('aria-expanded', open);
+  });
+  document.getElementById('contactForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    alert('This is a demo form. Connect it to an email service or backend before going live.');
+  });
+</script>
+
+</body>
+</html>
