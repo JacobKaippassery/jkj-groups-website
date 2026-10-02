@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JKJ Technology — IT Consulting & App Development</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#10182B;
+    --ink-2:#1A2540;
+    --ink-3:#212F52;
+    --paper:#F1EEE5;
+    --cream:#F7F5EF;
+    --brass:#C9A24B;
+    --sky:#48B4E6;
+    --accent:#4FA6A2;
+    --accent-dim:#2C5A57;
+    --accent-tint:#8FC9C5;
+    --line: rgba(247,245,239,0.14);
+    --max: 1120px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--ink); color:var(--cream); font-family:'Public Sans', sans-serif; font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased;}
+  h1,h2,h3,h4{font-family:'Fraunces', serif; font-weight:500; margin:0; letter-spacing:-0.01em;}
+  p{margin:0;}
+  a{color:inherit; text-decoration:none;}
+  ul{margin:0; padding:0; list-style:none;}
+  button{font-family:inherit;}
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible{outline:2px solid var(--accent-tint); outline-offset:3px;}
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 32px;}
+
+  .site-nav{position:sticky; top:0; z-index:50; background:rgba(16,24,43,0.9); backdrop-filter:blur(10px); border-bottom:1px solid var(--line);}
+  .site-nav .wrap{display:flex; align-items:center; justify-content:space-between; height:76px;}
+  .brand{font-family:'Fraunces', serif; font-size:1.2rem; font-weight:600; display:flex; align-items:center; gap:10px;}
+  .brand-mark{width:30px;height:30px;border-radius:50%;border:1.5px solid #FFFFFF;background:var(--sky);display:flex;align-items:center;justify-content:center;font-size:0.56rem;letter-spacing:-0.02em;font-family:'Public Sans', sans-serif;font-weight:700;color:#FFFFFF;}
+  .brand-sub{font-size:0.68rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--accent-tint); margin-left:2px;}
+  .nav-links{display:flex; gap:34px; font-size:0.95rem;}
+  .nav-links a{color:var(--cream); opacity:0.82; transition:opacity 0.15s ease; padding:4px 2px; border-bottom:1px solid transparent;}
+  .nav-links a:hover{opacity:1; border-bottom-color:var(--accent-tint);}
+  .nav-cta{border:1px solid var(--accent-tint); color:var(--accent-tint); padding:9px 18px; border-radius:2px; font-size:0.9rem; transition:background 0.15s ease, color 0.15s ease; white-space:nowrap;}
+  .nav-cta:hover{background:var(--accent-tint); color:var(--ink);}
+  .nav-toggle{display:none; background:none; border:none; color:var(--cream);}
+
+  .hub-strip{background:var(--ink-2); border-bottom:1px solid var(--line); font-size:0.82rem; color:rgba(247,245,239,0.65); padding:8px 0;}
+  .hub-strip .wrap{display:flex; align-items:center; gap:8px;}
+  .hub-strip a{color:var(--brass);}
+  .hub-strip a:hover{text-decoration:underline;}
+
+  .hero{padding:92px 0 84px; border-bottom:1px solid var(--line); overflow:hidden;}
+  .hero .wrap{display:grid; grid-template-columns:1.05fr 0.95fr; gap:56px; align-items:center;}
+  .hero-eyebrow{color:var(--accent-tint); font-size:0.92rem; margin-bottom:22px; max-width:34ch;}
+  .hero h1{font-size:clamp(2.2rem, 4vw, 3.4rem); line-height:1.1; max-width:15ch;}
+  .hero-sub{margin-top:24px; font-size:1.08rem; max-width:46ch; color:rgba(247,245,239,0.82);}
+  .hero-actions{margin-top:34px; display:flex; gap:16px; flex-wrap:wrap;}
+  .btn-primary{background:var(--accent); color:#08201F; padding:14px 26px; border-radius:2px; font-weight:600; font-size:0.98rem; transition:background 0.15s ease;}
+  .btn-primary:hover{background:var(--accent-tint);}
+  .btn-ghost{border:1px solid var(--line); padding:14px 26px; border-radius:2px; font-size:0.98rem; transition:border-color 0.15s ease;}
+  .btn-ghost:hover{border-color:var(--accent-tint);}
+
+  .hero-art{position:relative; aspect-ratio:1/1;}
+  .hero-art svg{width:100%; height:100%;}
+  .node-line{fill:none; stroke:var(--accent-tint); stroke-width:1.4; opacity:0.7;}
+  .node{fill:var(--ink); stroke:var(--accent-tint); stroke-width:1.6;}
+  .node-fill{fill:var(--accent);}
+
+  section{padding:88px 0;}
+  .section-head{max-width:56ch; margin-bottom:52px;}
+  .section-head .kicker{color:var(--accent-tint); font-size:0.9rem; margin-bottom:14px; display:block;}
+  .section-head h2{font-size:clamp(1.75rem, 3vw, 2.3rem); line-height:1.15;}
+  .section-head p{margin-top:16px; font-size:1.03rem; color:rgba(247,245,239,0.78);}
+
+  .services{background:var(--ink-2); border-bottom:1px solid var(--line);}
+  .service-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:24px;}
+  .service-card{border:1px solid var(--line); border-radius:4px; padding:28px 24px; background:var(--ink);}
+  .service-card .num{font-family:'Fraunces', serif; font-size:1.6rem; color:var(--accent-tint); margin-bottom:16px; display:block;}
+  .service-card h3{font-size:1.1rem; margin-bottom:10px;}
+  .service-card p{font-size:0.92rem; color:rgba(247,245,239,0.72);}
+
+  .process .wrap{max-width:900px;}
+  .process-row{display:grid; grid-template-columns:auto 1fr; gap:24px; padding:26px 0; border-top:1px solid var(--line);}
+  .process-row:last-child{border-bottom:1px solid var(--line);}
+  .process-step{font-family:'Fraunces', serif; font-size:1.4rem; color:var(--accent-tint); min-width:52px;}
+  .process-row h4{font-size:1.15rem; margin-bottom:8px;}
+  .process-row p{font-size:0.98rem; color:rgba(247,245,239,0.75); max-width:56ch;}
+
+  .about{background:var(--ink-2); border-bottom:1px solid var(--line);}
+  .about .wrap{display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start;}
+  .about-body p{font-size:1.03rem; color:rgba(247,245,239,0.85);}
+  .about-body p + p{margin-top:16px;}
+  .stat-list{display:grid; gap:22px;}
+  .stat-item{border-left:2px solid var(--accent); padding-left:22px;}
+  .stat-item .stat-num{font-family:'Fraunces', serif; font-size:2rem; color:var(--cream); display:block;}
+  .stat-item .stat-label{font-size:0.92rem; color:rgba(247,245,239,0.65);}
+
+  .contact .wrap{display:grid; grid-template-columns:0.85fr 1.15fr; gap:60px;}
+  .contact-info-item{margin-bottom:26px;}
+  .contact-info-item h4{font-size:1rem; margin-bottom:6px; color:var(--accent-tint);}
+  .contact-info-item p{color:rgba(247,245,239,0.8); font-size:0.98rem;}
+  form{display:grid; gap:18px;}
+  .form-row{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
+  label{display:block; font-size:0.85rem; color:rgba(247,245,239,0.7); margin-bottom:7px;}
+  input,textarea,select{width:100%; background:var(--ink-2); border:1px solid var(--line); color:var(--cream); padding:12px 14px; border-radius:2px; font-family:inherit; font-size:0.95rem;}
+  textarea{resize:vertical; min-height:100px;}
+  .form-submit{background:var(--accent); color:#08201F; border:none; padding:14px 26px; border-radius:2px; font-weight:600; font-size:0.98rem; cursor:pointer; justify-self:start; transition:background 0.15s ease;}
+  .form-submit:hover{background:var(--accent-tint);}
+  .form-note{font-size:0.82rem; color:rgba(247,245,239,0.5); margin-top:-4px;}
+
+  .site-footer{padding:40px 0 30px; border-top:1px solid var(--line);}
+  .footer-top{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; font-size:0.86rem; color:rgba(247,245,239,0.55); padding-bottom:26px; border-bottom:1px solid var(--line); margin-bottom:20px;}
+  .footer-brand{display:flex; align-items:center; gap:18px;}
+  .footer-links{display:flex; gap:22px;}
+  .footer-links a{opacity:0.75;}
+  .footer-links a:hover{opacity:1;}
+  .footer-family{font-size:0.82rem; color:rgba(247,245,239,0.5); display:flex; flex-wrap:wrap; gap:6px 18px; align-items:center;}
+  .footer-family a{color:var(--brass); opacity:1;}
+  .footer-family a:hover{text-decoration:underline;}
+
+  @media (max-width:900px){
+    .hero .wrap{grid-template-columns:1fr; gap:40px;}
+    .hero-art{max-width:340px;}
+    .service-grid{grid-template-columns:1fr 1fr;}
+    .about .wrap{grid-template-columns:1fr; gap:32px;}
+    .contact .wrap{grid-template-columns:1fr; gap:36px;}
+    .form-row{grid-template-columns:1fr;}
+  }
+  @media (max-width:680px){
+    .wrap{padding:0 20px;}
+    .nav-links{position:absolute; top:76px; left:0; right:0; background:var(--ink); flex-direction:column; gap:0; border-bottom:1px solid var(--line); display:none; padding:8px 20px 18px;}
+    .nav-links.open{display:flex;}
+    .nav-links a{padding:12px 0; width:100%; border-bottom:1px solid var(--line);}
+    .nav-cta{display:none;}
+    .nav-toggle{display:block;}
+    .service-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<div class="hub-strip"><div class="wrap">Part of <a href="https://jkjgroups.com">JKJ Groups</a> — technology, Christian goods & transportation, together.</div></div>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a href="#top" class="brand">
+      <span class="brand-mark">JKJ</span>
+      JKJ Technology
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div style="display:flex; align-items:center; gap:18px;">
+      <a href="#contact" class="nav-cta">Get a quote</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <span class="hero-eyebrow">JKJ Technology — the technology division of JKJ Groups</span>
+      <h1>Software and systems built around how you work</h1>
+      <p class="hero-sub">We plan, build, and support the technology behind growing businesses — custom applications, IT consulting, and the ongoing support that keeps it all running.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Get a quote</a>
+        <a href="#services" class="btn-ghost">See our services</a>
+      </div>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+        <path class="node-line" d="M60,80 L200,140 L340,90"/>
+        <path class="node-line" d="M60,320 L200,260 L340,310"/>
+        <path class="node-line" d="M200,140 L200,260"/>
+        <path class="node-line" d="M60,80 L60,320"/>
+        <path class="node-line" d="M340,90 L340,310"/>
+        <circle class="node" cx="60" cy="80" r="8"/>
+        <circle class="node" cx="60" cy="320" r="8"/>
+        <circle class="node" cx="340" cy="90" r="8"/>
+        <circle class="node" cx="340" cy="310" r="8"/>
+        <circle class="node node-fill" cx="200" cy="140" r="10"/>
+        <circle class="node node-fill" cx="200" cy="260" r="10"/>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">What we do</span>
+      <h2>Four ways we support your technology</h2>
+      <p>Whether you need something built from scratch or a second set of hands on what you already have, we work in whichever mode fits.</p>
+    </div>
+    <div class="service-grid">
+      <div class="service-card">
+        <span class="num">01</span>
+        <h3>Custom App Development</h3>
+        <p>Web and mobile applications built for your exact workflow, not a generic template.</p>
+      </div>
+      <div class="service-card">
+        <span class="num">02</span>
+        <h3>IT Consulting & Support</h3>
+        <p>Ongoing guidance and troubleshooting so your team isn't stuck waiting on tech issues.</p>
+      </div>
+      <div class="service-card">
+        <span class="num">03</span>
+        <h3>Systems Integration</h3>
+        <p>Connecting the tools you already use so data moves automatically instead of manually.</p>
+      </div>
+      <div class="service-card">
+        <span class="num">04</span>
+        <h3>Ongoing Maintenance</h3>
+        <p>Updates, monitoring, and fixes on a retainer, so nothing breaks quietly in the background.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="process" id="process">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">How we work</span>
+      <h2>A straightforward process, start to finish</h2>
+    </div>
+    <div class="process-row">
+      <span class="process-step">01</span>
+      <div>
+        <h4>Discover</h4>
+        <p>We start with a conversation about what's actually slowing you down or what you're trying to build — no assumptions, no generic proposal.</p>
+      </div>
+    </div>
+    <div class="process-row">
+      <span class="process-step">02</span>
+      <div>
+        <h4>Build</h4>
+        <p>Development happens in stages with regular check-ins, so you're never waiting weeks to see progress or give feedback.</p>
+      </div>
+    </div>
+    <div class="process-row">
+      <span class="process-step">03</span>
+      <div>
+        <h4>Support</h4>
+        <p>Launch isn't the finish line. We stay on for maintenance, fixes, and the next round of improvements.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="about-body">
+      <span class="hero-eyebrow" style="margin-bottom:18px; display:block;">About JKJ Technology</span>
+      <h2 style="font-size:clamp(1.7rem,3vw,2.2rem); margin-bottom:20px;">Technology support that doesn't require an in-house team</h2>
+      <p>JKJ Technology exists for businesses that need dependable software and IT support but aren't ready for — or don't need — a full internal department.</p>
+      <p>We're the technology division of JKJ Groups, based in Elmhurst, Illinois, and working with small and mid-sized businesses across the greater Chicago area and remotely.</p>
+    </div>
+    <div class="stat-list">
+      <div class="stat-item">
+        <span class="stat-num">Project-based</span>
+        <span class="stat-label">or ongoing retainer pricing — whichever fits your situation</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">Direct access</span>
+        <span class="stat-label">to the people actually doing the work, not a account-manager layer</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">Local + remote</span>
+        <span class="stat-label">serving DuPage County in person, and clients anywhere by video</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div>
+      <div class="section-head" style="margin-bottom:32px;">
+        <span class="kicker">Get in touch</span>
+        <h2>Tell us what you're working on</h2>
+        <p>Share a few details and we'll follow up to schedule a call.</p>
+      </div>
+      <div class="contact-info-item">
+        <h4>Email</h4>
+        <p>hello@jkjgroups.net</p>
+      </div>
+      <div class="contact-info-item">
+        <h4>Phone</h4>
+        <p>(555) 555-0142</p>
+      </div>
+      <div class="contact-info-item">
+        <h4>Based in</h4>
+        <p>Elmhurst, IL — serving Chicago & remote clients</p>
+      </div>
+    </div>
+    <form id="contactForm">
+      <div class="form-row">
+        <div>
+          <label for="name">Full name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div>
+          <label for="project">Project type</label>
+          <select id="project" name="project">
+            <option>Custom app development</option>
+            <option>IT consulting & support</option>
+            <option>Systems integration</option>
+            <option>Ongoing maintenance</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+        <div>
+          <label for="budget">Estimated budget</label>
+          <select id="budget" name="budget">
+            <option>Under $2,000</option>
+            <option>$2,000–$10,000</option>
+            <option>$10,000+</option>
+            <option>Let's discuss</option>
+          </select>
+        </div>
+      </div>
+      <div>
+        <label for="message">Project details</label>
+        <textarea id="message" name="message" required></textarea>
+      </div>
+      <button type="submit" class="form-submit">Send message</button>
+      <p class="form-note">This form is a working layout only — connect it to email or a form service before publishing.</p>
+    </form>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#top" class="brand">
+          <span class="brand-mark">JKJ</span>
+          JKJ Technology
+        </a>
+      </div>
+      <div class="footer-links">
+        <a href="#top">Back to top</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+    <div class="footer-family">
+      <span>© 2026 JKJ Technology, part of JKJ Groups.</span>
+      <a href="https://jkjgroups.com">JKJ Groups</a>
+      <a href="https://jkjgroups.store">JKJ Christian Goods</a>
+      <a href="https://jkjgroups.info">JKJ Rides</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('navToggle').addEventListener('click', function(){
+    var links = document.getElementById('navLinks');
+    var open = links.classList.toggle('open');
+    this.setAttribute('aria-expanded', open);
+  });
+  document.getElementById('contactForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    alert('This is a demo form. Connect it to an email service or backend before going live.');
+  });
+</script>
+
+</body>
+</html>
