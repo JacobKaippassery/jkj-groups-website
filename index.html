@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JKJ Groups, LLC — Technology, Christian Goods & Transportation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#10182B;
+    --ink-2:#1A2540;
+    --ink-3:#212F52;
+    --paper:#F1EEE5;
+    --paper-2:#E9E4D6;
+    --cream:#F7F5EF;
+    --brass:#C9A24B;
+    --brass-dim:#8E7638;
+    --sky:#48B4E6;
+    --teal:#3F7C79;
+    --teal-dim:#2C5A57;
+    --rust:#B5623E;
+    --rust-dim:#874830;
+    --plum:#6E4B63;
+    --plum-dim:#4E3546;
+    --line: rgba(247,245,239,0.14);
+    --max: 1120px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--ink);
+    color:var(--cream);
+    font-family:'Public Sans', sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  p{margin:0;}
+  a{color:inherit;text-decoration:none;}
+  img,svg{display:block;max-width:100%;}
+  ul{margin:0;padding:0;list-style:none;}
+  button{font-family:inherit;}
+
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible{
+    outline:2px solid var(--brass);
+    outline-offset:3px;
+  }
+
+  .wrap{
+    max-width:var(--max);
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  /* ---------- Nav ---------- */
+  .site-nav{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(16,24,43,0.86);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .site-nav .wrap{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    height:76px;
+  }
+  .brand{
+    font-family:'Fraunces', serif;
+    font-size:1.25rem;
+    font-weight:600;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .brand-mark{
+    width:30px;height:30px;
+    border-radius:50%;
+    border:1.5px solid #FFFFFF;
+    background:var(--sky);
+    display:flex;align-items:center;justify-content:center;
+    font-size:0.56rem;
+    letter-spacing:-0.02em;
+    font-family:'Public Sans', sans-serif;
+    font-weight:700;
+    color:#FFFFFF;
+  }
+  .nav-links{
+    display:flex;
+    gap:36px;
+    font-size:0.95rem;
+  }
+  .nav-links a{
+    color:var(--cream);
+    opacity:0.82;
+    transition:opacity 0.15s ease;
+    padding:4px 2px;
+    border-bottom:1px solid transparent;
+  }
+  .nav-links a:hover{opacity:1; border-bottom-color:var(--brass);}
+  .nav-cta{
+    border:1px solid var(--brass);
+    color:var(--brass);
+    padding:9px 18px;
+    border-radius:2px;
+    font-size:0.9rem;
+    transition:background 0.15s ease, color 0.15s ease;
+    white-space:nowrap;
+  }
+  .nav-cta:hover{background:var(--brass); color:var(--ink);}
+  .nav-toggle{display:none;background:none;border:none;color:var(--cream);}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding:96px 0 88px;
+    border-bottom:1px solid var(--line);
+    overflow:hidden;
+  }
+  .hero .wrap{
+    display:grid;
+    grid-template-columns:1.05fr 0.95fr;
+    gap:56px;
+    align-items:center;
+  }
+  .hero-eyebrow{
+    color:var(--brass);
+    font-size:0.92rem;
+    margin-bottom:22px;
+    max-width:34ch;
+  }
+  .hero h1{
+    font-size:clamp(2.3rem, 4.2vw, 3.55rem);
+    line-height:1.08;
+    max-width:14ch;
+  }
+  .hero-sub{
+    margin-top:26px;
+    font-size:1.1rem;
+    max-width:46ch;
+    color:rgba(247,245,239,0.82);
+  }
+  .hero-actions{
+    margin-top:36px;
+    display:flex;
+    gap:18px;
+    flex-wrap:wrap;
+  }
+  .btn-primary{
+    background:var(--brass);
+    color:var(--ink);
+    padding:14px 26px;
+    border-radius:2px;
+    font-weight:600;
+    font-size:0.98rem;
+    transition:background 0.15s ease;
+  }
+  .btn-primary:hover{background:#dcb662;}
+  .btn-ghost{
+    border:1px solid var(--line);
+    padding:14px 26px;
+    border-radius:2px;
+    font-size:0.98rem;
+    transition:border-color 0.15s ease;
+  }
+  .btn-ghost:hover{border-color:var(--brass);}
+
+  .hero-art{
+    position:relative;
+    aspect-ratio:1/1;
+  }
+  .hero-art svg{width:100%;height:100%;}
+  .path-line{
+    fill:none;
+    stroke-width:1.6;
+    stroke-linecap:round;
+    stroke-dasharray:600;
+    stroke-dashoffset:600;
+    animation:draw 1.6s ease forwards;
+  }
+  .p1{stroke:var(--teal); animation-delay:0.1s;}
+  .p2{stroke:var(--rust); animation-delay:0.35s;}
+  .p3{stroke:var(--plum); animation-delay:0.6s;}
+  .node{
+    fill:var(--ink);
+    stroke:var(--brass);
+    stroke-width:1.4;
+    opacity:0;
+    animation:pop 0.5s ease forwards;
+    animation-delay:1.3s;
+  }
+  .hub{fill:var(--brass); opacity:0; animation:pop 0.5s ease forwards; animation-delay:1.5s;}
+  @keyframes draw{to{stroke-dashoffset:0;}}
+  @keyframes pop{
+    from{opacity:0; transform:scale(0.6); transform-origin:center;}
+    to{opacity:1; transform:scale(1);}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .path-line,.node,.hub{animation:none; stroke-dashoffset:0; opacity:1;}
+  }
+
+  /* ---------- Section shell ---------- */
+  section{padding:92px 0;}
+  .section-head{
+    max-width:56ch;
+    margin-bottom:56px;
+  }
+  .section-head .kicker{
+    color:var(--brass);
+    font-size:0.92rem;
+    margin-bottom:14px;
+    display:block;
+  }
+  .section-head h2{
+    font-size:clamp(1.8rem, 3vw, 2.4rem);
+    line-height:1.15;
+  }
+  .section-head p{
+    margin-top:16px;
+    font-size:1.05rem;
+    color:rgba(247,245,239,0.78);
+  }
+
+  /* ---------- About ---------- */
+  .about{background:var(--ink-2); border-bottom:1px solid var(--line);}
+  .about .wrap{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:64px;
+    align-items:start;
+  }
+  .about-body p{
+    font-size:1.05rem;
+    color:rgba(247,245,239,0.85);
+  }
+  .about-body p + p{margin-top:18px;}
+  .pull-quote{
+    border-left:2px solid var(--brass);
+    padding-left:28px;
+  }
+  .pull-quote p{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:1.5rem;
+    line-height:1.4;
+    color:var(--cream);
+  }
+  .pull-quote cite{
+    display:block;
+    margin-top:18px;
+    font-style:normal;
+    font-size:0.9rem;
+    color:rgba(247,245,239,0.6);
+  }
+
+  /* ---------- Divisions ---------- */
+  .division{
+    display:grid;
+    grid-template-columns:0.9fr 1.1fr;
+    gap:48px;
+    align-items:center;
+    padding:44px;
+    border-radius:4px;
+    border:1px solid var(--line);
+  }
+  .division + .division{margin-top:28px;}
+  .division:nth-of-type(even){grid-template-columns:1.1fr 0.9fr;}
+  .division:nth-of-type(even) .division-copy{order:2;}
+  .division:nth-of-type(even) .division-visual{order:1;}
+
+  .division-visual{
+    aspect-ratio:4/3;
+    border-radius:3px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .division-visual svg{width:58%;height:58%;}
+
+  .div-tech .division-visual{background:linear-gradient(155deg, var(--teal-dim), var(--ink-3));}
+  .div-goods .division-visual{background:linear-gradient(155deg, var(--plum-dim), var(--ink-3));}
+  .div-rides .division-visual{background:linear-gradient(155deg, var(--rust-dim), var(--ink-3));}
+
+  .division-tag{
+    display:inline-block;
+    font-size:0.82rem;
+    padding:5px 12px;
+    border-radius:2px;
+    margin-bottom:18px;
+  }
+  .div-tech .division-tag{background:rgba(63,124,121,0.22); color:#8FC9C5;}
+  .div-goods .division-tag{background:rgba(110,75,99,0.28); color:#D2AFC6;}
+  .div-rides .division-tag{background:rgba(181,98,62,0.24); color:#E3A783;}
+
+  .division h3{font-size:1.7rem; margin-bottom:14px;}
+  .division-desc{font-size:1.02rem; color:rgba(247,245,239,0.8); max-width:44ch;}
+  .division-offer{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:24px;
+  }
+  .division-offer li{
+    font-size:0.86rem;
+    padding:7px 13px;
+    border:1px solid var(--line);
+    border-radius:20px;
+    color:rgba(247,245,239,0.75);
+  }
+  .division-link{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin-top:26px;
+    font-size:0.95rem;
+    color:var(--brass);
+    border-bottom:1px solid var(--brass-dim);
+    padding-bottom:2px;
+  }
+
+  .division-more{
+    margin-top:28px;
+    padding:40px 44px;
+    border:1px dashed var(--line);
+    border-radius:4px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:32px;
+    flex-wrap:wrap;
+  }
+  .division-more h3{font-size:1.3rem; margin-bottom:8px;}
+  .division-more p{color:rgba(247,245,239,0.7); max-width:48ch;}
+
+  /* ---------- Values strip ---------- */
+  .values{background:var(--paper); color:var(--ink); border-bottom:1px solid rgba(16,24,43,0.1);}
+  .values .section-head p{color:rgba(16,24,43,0.68);}
+  .values .section-head .kicker{color:var(--brass-dim);}
+  .values-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:40px;
+  }
+  .value-item h4{font-size:1.15rem; margin-bottom:10px;}
+  .value-item p{font-size:0.98rem; color:rgba(16,24,43,0.68);}
+  .value-item{border-top:1px solid rgba(16,24,43,0.14); padding-top:20px;}
+
+  /* ---------- Contact ---------- */
+  .contact .wrap{
+    display:grid;
+    grid-template-columns:0.85fr 1.15fr;
+    gap:64px;
+  }
+  .contact-info-item{margin-bottom:28px;}
+  .contact-info-item h4{font-size:1rem; margin-bottom:6px; color:var(--brass);}
+  .contact-info-item p{color:rgba(247,245,239,0.8); font-size:0.98rem;}
+
+  form{display:grid; gap:18px;}
+  .form-row{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
+  label{
+    display:block;
+    font-size:0.85rem;
+    color:rgba(247,245,239,0.7);
+    margin-bottom:7px;
+  }
+  input,textarea,select{
+    width:100%;
+    background:var(--ink-2);
+    border:1px solid var(--line);
+    color:var(--cream);
+    padding:12px 14px;
+    border-radius:2px;
+    font-family:inherit;
+    font-size:0.95rem;
+  }
+  textarea{resize:vertical; min-height:110px;}
+  .form-submit{
+    background:var(--brass);
+    color:var(--ink);
+    border:none;
+    padding:14px 26px;
+    border-radius:2px;
+    font-weight:600;
+    font-size:0.98rem;
+    cursor:pointer;
+    justify-self:start;
+    transition:background 0.15s ease;
+  }
+  .form-submit:hover{background:#dcb662;}
+  .form-note{font-size:0.82rem; color:rgba(247,245,239,0.5); margin-top:-4px;}
+
+  /* ---------- Footer ---------- */
+  .site-footer{
+    padding:40px 0;
+    border-top:1px solid var(--line);
+  }
+  .site-footer .wrap{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:16px;
+    font-size:0.86rem;
+    color:rgba(247,245,239,0.55);
+  }
+  .footer-brand{
+    display:flex;
+    align-items:center;
+    gap:20px;
+  }
+  .footer-copy{color:rgba(247,245,239,0.55); margin-left:4px;}
+  .footer-links{display:flex; gap:24px;}
+  .footer-links a{opacity:0.75;}
+  .footer-links a:hover{opacity:1;}
+
+  /* Light-background wordmark (matches JKJ Groups, LLC lockup) */
+  .wordmark-light{
+    font-family:'Public Sans', sans-serif;
+    font-weight:800;
+    font-size:1.5rem;
+    letter-spacing:-0.01em;
+    color:var(--ink);
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:900px){
+    .hero .wrap{grid-template-columns:1fr; gap:44px;}
+    .hero-art{max-width:360px;}
+    .about .wrap{grid-template-columns:1fr; gap:36px;}
+    .division{grid-template-columns:1fr !important;}
+    .division:nth-of-type(even) .division-copy{order:1;}
+    .division:nth-of-type(even) .division-visual{order:0;}
+    .division-visual{max-width:280px;}
+    .values-grid{grid-template-columns:1fr; gap:28px;}
+    .contact .wrap{grid-template-columns:1fr; gap:40px;}
+    .form-row{grid-template-columns:1fr;}
+  }
+  @media (max-width:680px){
+    .wrap{padding:0 20px;}
+    .nav-links{
+      position:absolute;
+      top:76px; left:0; right:0;
+      background:var(--ink);
+      flex-direction:column;
+      gap:0;
+      border-bottom:1px solid var(--line);
+      display:none;
+      padding:8px 20px 18px;
+    }
+    .nav-links.open{display:flex;}
+    .nav-links a{padding:12px 0; width:100%; border-bottom:1px solid var(--line);}
+    .nav-cta{display:none;}
+    .nav-toggle{display:block;}
+    .division{padding:28px;}
+    .division-more{flex-direction:column; align-items:flex-start;}
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a href="#top" class="brand">
+      <span class="brand-mark">JKJ</span>
+      JKJ Groups
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#divisions">Divisions</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#values">Values</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div style="display:flex; align-items:center; gap:18px;">
+      <a href="#contact" class="nav-cta">Get in touch</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <span class="hero-eyebrow">JKJ Groups, LLC — a family of businesses</span>
+      <h1>One company.<br>Three ways we show up.</h1>
+      <p class="hero-sub">JKJ Groups brings together technology, everyday essentials, and reliable transportation — built around what our neighbors actually need, not what fits neatly on one shelf.</p>
+      <div class="hero-actions">
+        <a href="#divisions" class="btn-primary">See our divisions</a>
+        <a href="#contact" class="btn-ghost">Start a conversation</a>
+      </div>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+        <path class="path-line p1" d="M40,90 C120,60 160,140 200,200" />
+        <path class="path-line p2" d="M60,330 C130,300 160,250 200,200" />
+        <path class="path-line p3" d="M360,140 C280,140 240,170 200,200" />
+        <circle class="node" cx="40" cy="90" r="7"/>
+        <circle class="node" cx="60" cy="330" r="7"/>
+        <circle class="node" cx="360" cy="140" r="7"/>
+        <circle class="hub" cx="200" cy="200" r="10"/>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="about-body">
+      <span class="hero-eyebrow" style="margin-bottom:18px; display:block;">About JKJ Groups</span>
+      <h2 style="font-size:clamp(1.7rem,3vw,2.2rem); margin-bottom:20px;">Built on one idea</h2>
+      <p>JKJ Groups, LLC started from a simple belief: a business earns trust by showing up reliably. Sometimes that means shipping working software on schedule. Sometimes it means handling a meaningful purchase with care. Sometimes it means simply getting someone where they need to be, on time.</p>
+      <p>Each division runs on its own, with its own team and its own craft — but every part of JKJ Groups answers to the same standard.</p>
+    </div>
+    <div class="pull-quote">
+      <p>Different businesses. Same word we live by.</p>
+      <cite>Reliable — first, last, and always.</cite>
+    </div>
+  </div>
+</section>
+
+<section id="divisions">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">What we do</span>
+      <h2>Three divisions, built for real needs</h2>
+      <p>Every part of JKJ Groups exists because someone needed it — and kept needing it. Here's where we currently show up.</p>
+    </div>
+
+    <article class="division div-tech">
+      <div class="division-copy">
+        <span class="division-tag">JKJ Technology</span>
+        <h3>Software and systems built around how you actually work</h3>
+        <p class="division-desc">We plan, build, and support the technology behind growing businesses — from custom applications to the ongoing IT consulting that keeps everything running.</p>
+        <ul class="division-offer">
+          <li>Custom app development</li>
+          <li>IT consulting & support</li>
+          <li>Systems integration</li>
+          <li>Ongoing maintenance</li>
+        </ul>
+        <a href="/technology/" class="division-link">Visit JKJ Technology →</a>
+      </div>
+      <div class="division-visual" aria-hidden="true">
+        <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+          <rect x="18" y="18" width="84" height="60" rx="3" fill="none" stroke="#8FC9C5" stroke-width="1.6"/>
+          <line x1="30" y1="34" x2="70" y2="34" stroke="#8FC9C5" stroke-width="1.6"/>
+          <line x1="30" y1="46" x2="90" y2="46" stroke="#8FC9C5" stroke-width="1.6" opacity="0.6"/>
+          <line x1="30" y1="58" x2="58" y2="58" stroke="#8FC9C5" stroke-width="1.6" opacity="0.6"/>
+          <line x1="40" y1="90" x2="80" y2="90" stroke="#8FC9C5" stroke-width="1.6"/>
+          <line x1="60" y1="78" x2="60" y2="90" stroke="#8FC9C5" stroke-width="1.6"/>
+        </svg>
+      </div>
+    </article>
+
+    <article class="division div-goods">
+      <div class="division-copy">
+        <span class="division-tag">JKJ Christian Goods</span>
+        <h3>Christian goods, available online and made to order</h3>
+        <p class="division-desc">A curated selection of Christian items — Bibles, devotionals, crosses, home décor, and gifts — available through our online store or as a custom order for something specific.</p>
+        <ul class="division-offer">
+          <li>Bibles & devotionals</li>
+          <li>Crosses & home décor</li>
+          <li>Gifts & apparel</li>
+          <li>Online store</li>
+          <li>Custom orders</li>
+        </ul>
+        <a href="/christian-goods/" class="division-link">Visit JKJ Christian Goods →</a>
+      </div>
+      <div class="division-visual" aria-hidden="true">
+        <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+          <line x1="60" y1="20" x2="60" y2="95" stroke="#D2AFC6" stroke-width="1.6"/>
+          <line x1="35" y1="45" x2="85" y2="45" stroke="#D2AFC6" stroke-width="1.6"/>
+          <path d="M45,100 C45,90 75,90 75,100" fill="none" stroke="#D2AFC6" stroke-width="1.6"/>
+        </svg>
+      </div>
+    </article>
+
+    <article class="division div-rides">
+      <div class="division-copy">
+        <span class="division-tag">JKJ Rides</span>
+        <h3>Getting people where they need to be, when it matters</h3>
+        <p class="division-desc">Reliable transportation for appointments, errands, and the everyday needs that don't wait — door to door, on your schedule.</p>
+        <ul class="division-offer">
+          <li>Medical & appointment rides</li>
+          <li>Errand runs</li>
+          <li>Scheduled transport</li>
+          <li>Group & event rides</li>
+        </ul>
+        <a href="/rides/" class="division-link">Visit JKJ Rides →</a>
+      </div>
+      <div class="division-visual" aria-hidden="true">
+        <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20,80 C40,80 40,60 55,60 C70,60 70,40 100,40" fill="none" stroke="#E3A783" stroke-width="1.6"/>
+          <circle cx="20" cy="80" r="4" fill="#E3A783"/>
+          <circle cx="100" cy="40" r="4" fill="#E3A783"/>
+        </svg>
+      </div>
+    </article>
+
+    <div class="division-more">
+      <div>
+        <h3>And we're not done building</h3>
+        <p>JKJ Groups grows around real needs we see in our community. If there's a gap you think we should fill, we want to hear about it.</p>
+      </div>
+      <a href="#contact" class="btn-ghost">Pitch us an idea</a>
+    </div>
+  </div>
+</section>
+
+<section class="values" id="values">
+  <div class="wrap">
+    <div class="wordmark-light" style="margin-bottom:28px;">JKJ Groups, LLC</div>
+    <div class="section-head">
+      <span class="kicker">How we operate</span>
+      <h2>What ties three very different businesses together</h2>
+    </div>
+    <div class="values-grid">
+      <div class="value-item">
+        <h4>Community first</h4>
+        <p>Every division exists to solve a problem our neighbors actually have — not one we invented to sell something.</p>
+      </div>
+      <div class="value-item">
+        <h4>Craft over shortcuts</h4>
+        <p>Whether it's a line of code, a devotional item, or a scheduled pickup, we do it properly or we don't do it.</p>
+      </div>
+      <div class="value-item">
+        <h4>One standard, everywhere</h4>
+        <p>Different industries, same expectation: show up when we say we will, and do right by the person in front of us.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div>
+      <div class="section-head" style="margin-bottom:36px;">
+        <span class="kicker">Get in touch</span>
+        <h2>Tell us which division you need</h2>
+        <p>Let us know what you're looking for and we'll route you to the right team.</p>
+      </div>
+      <div class="contact-info-item">
+        <h4>Email</h4>
+        <p>hello@jkjgroups.com</p>
+      </div>
+      <div class="contact-info-item">
+        <h4>Phone</h4>
+        <p>(555) 555‑0142</p>
+      </div>
+      <div class="contact-info-item">
+        <h4>Online</h4>
+        <p>jkjgroups.com</p>
+      </div>
+    </div>
+    <form id="contactForm">
+      <div class="form-row">
+        <div>
+          <label for="name">Full name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+      </div>
+      <div>
+        <label for="division">I'm interested in</label>
+        <select id="division" name="division">
+          <option>JKJ Technology — IT consulting & app development</option>
+          <option>JKJ Christian Goods — online & custom orders</option>
+          <option>JKJ Rides — transportation</option>
+          <option>Something else</option>
+        </select>
+      </div>
+      <div>
+        <label for="message">Message</label>
+        <textarea id="message" name="message" required></textarea>
+      </div>
+      <button type="submit" class="form-submit">Send message</button>
+      <p class="form-note">This form is a working layout only — connect it to email or a form service before publishing.</p>
+    </form>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-brand">
+      <a href="#top" class="brand">
+        <span class="brand-mark">JKJ</span>
+        JKJ Groups
+      </a>
+      <span class="footer-copy">© 2026 JKJ Groups, LLC. All rights reserved.</span>
+    </div>
+    <div class="footer-links">
+      <a href="#top">Back to top</a>
+      <a href="#divisions">Divisions</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('navToggle').addEventListener('click', function(){
+    var links = document.getElementById('navLinks');
+    var open = links.classList.toggle('open');
+    this.setAttribute('aria-expanded', open);
+  });
+
+  document.getElementById('contactForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    alert('This is a demo form. Connect it to an email service or backend before going live.');
+  });
+</script>
+
+</body>
+</html>
