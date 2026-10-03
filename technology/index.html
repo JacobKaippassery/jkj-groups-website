@@ -74,11 +74,13 @@
   .section-head p{margin-top:16px; font-size:1.03rem; color:rgba(247,245,239,0.78);}
 
   .services{background:var(--ink-2); border-bottom:1px solid var(--line);}
-  .service-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:24px;}
+  .service-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:24px;}
   .service-card{border:1px solid var(--line); border-radius:4px; padding:28px 24px; background:var(--ink);}
   .service-card .num{font-family:'Fraunces', serif; font-size:1.6rem; color:var(--accent-tint); margin-bottom:16px; display:block;}
   .service-card h3{font-size:1.1rem; margin-bottom:10px;}
   .service-card p{font-size:0.92rem; color:rgba(247,245,239,0.72);}
+  .service-card.ai-card{border-color:var(--accent); background:linear-gradient(180deg, rgba(79,166,162,0.12), var(--ink));}
+  .ai-badge{display:inline-block; font-size:0.72rem; font-weight:600; letter-spacing:0.04em; color:var(--accent-dim); background:var(--accent-tint); padding:3px 9px; border-radius:20px; margin-bottom:12px;}
 
   .process .wrap{max-width:900px;}
   .process-row{display:grid; grid-template-columns:auto 1fr; gap:24px; padding:26px 0; border-top:1px solid var(--line);}
@@ -122,7 +124,6 @@
   @media (max-width:900px){
     .hero .wrap{grid-template-columns:1fr; gap:40px;}
     .hero-art{max-width:340px;}
-    .service-grid{grid-template-columns:1fr 1fr;}
     .about .wrap{grid-template-columns:1fr; gap:32px;}
     .contact .wrap{grid-template-columns:1fr; gap:36px;}
     .form-row{grid-template-columns:1fr;}
@@ -166,7 +167,7 @@
     <div>
       <span class="hero-eyebrow">JKJ Technology — the technology division of JKJ Groups</span>
       <h1>Software and systems built around how you work</h1>
-      <p class="hero-sub">We plan, build, and support the technology behind growing businesses — custom applications, IT consulting, and the ongoing support that keeps it all running.</p>
+      <p class="hero-sub">We plan, build, and support the technology behind growing businesses — custom applications, IT consulting, AI adoption, and the ongoing support that keeps it all running.</p>
       <div class="hero-actions">
         <a href="#contact" class="btn-primary">Get a quote</a>
         <a href="#services" class="btn-ghost">See our services</a>
@@ -194,10 +195,15 @@
   <div class="wrap">
     <div class="section-head">
       <span class="kicker">What we do</span>
-      <h2>Four ways we support your technology</h2>
+      <h2>Five ways we support your technology</h2>
       <p>Whether you need something built from scratch or a second set of hands on what you already have, we work in whichever mode fits.</p>
     </div>
     <div class="service-grid">
+      <div class="service-card ai-card">
+        <span class="ai-badge">New</span>
+        <h3>AI for Your Business</h3>
+        <p>We help companies build and adopt practical AI — from automating a repetitive workflow to adding an AI-powered feature to your product. Our team is completing the University of Chicago's AI Engineering Bootcamp (starting October 5, 2026) to bring enterprise-grade AI implementation skills directly to clients.</p>
+      </div>
       <div class="service-card">
         <span class="num">01</span>
         <h3>Custom App Development</h3>
@@ -259,6 +265,7 @@
       <h2 style="font-size:clamp(1.7rem,3vw,2.2rem); margin-bottom:20px;">Technology support that doesn't require an in-house team</h2>
       <p>JKJ Technology exists for businesses that need dependable software and IT support but aren't ready for — or don't need — a full internal department.</p>
       <p>We're the technology division of JKJ Groups, based in Elmhurst, Illinois, and working with small and mid-sized businesses across the greater Chicago area and remotely.</p>
+      <p>We're growing our AI capabilities too — our team is enrolled in the University of Chicago's AI Engineering Bootcamp, starting October 5, so we can help clients adopt AI the right way, not just chase the hype.</p>
     </div>
     <div class="stat-list">
       <div class="stat-item">
@@ -313,6 +320,7 @@
         <div>
           <label for="project">Project type</label>
           <select id="project" name="project">
+            <option>AI for your business</option>
             <option>Custom app development</option>
             <option>IT consulting & support</option>
             <option>Systems integration</option>
