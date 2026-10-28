@@ -307,7 +307,7 @@
         <textarea id="message" name="message" required></textarea>
       </div>
       <button type="submit" class="form-submit">Request a ride</button>
-      <p class="form-note">This form is a working layout only — connect it to email or a form service before publishing.</p>
+      <p class="form-note" id="formStatus" role="status" aria-live="polite"></p>
     </form>
   </div>
 </section>
@@ -342,7 +342,7 @@
   });
   document.getElementById('contactForm').addEventListener('submit', function(e){
     e.preventDefault();
-    var f=this,L=[];f.querySelectorAll('input,select,textarea').forEach(function(el){if(!el.name)return;var lb=f.querySelector('label[for="'+el.id+'"]');L.push((lb?lb.textContent:el.name)+': '+el.value);});window.location.href='mailto:'+'rides@jkjgroups.com'+'?subject='+encodeURIComponent('Ride request from '+document.getElementById('name').value)+'&body='+encodeURIComponent(L.join('\n'));
+    var f=this,b=f.querySelector('.form-submit'),st=document.getElementById('formStatus'),A='rides@jkjgroups.com',D={_subject:'Ride request from '+document.getElementById('name').value,_captcha:'false',_template:'table'};f.querySelectorAll('input,select,textarea').forEach(function(el){if(el.name)D[el.name]=el.value;});b.disabled=true;st.textContent='Sending...';fetch('https://formsubmit.co/ajax/'+A,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(D)}).then(function(r){if(!r.ok)throw 0;return r.json();}).then(function(){st.textContent='Thank you! We received your message and will reply soon.';f.reset();}).catch(function(){st.textContent='Sorry, that did not send. Please email '+A+' directly.';}).then(function(){b.disabled=false;});
   });
 </script>
 
