@@ -519,9 +519,9 @@
     <ul class="nav-links" id="navLinks">
       <li><a href="#rides">Rides</a></li>
       <li><a href="#how">How it works</a></li>
+      <li><a href="#contact">Contact</a></li>
       <li><a href="#more">More from JKJ Groups</a></li>
       <li><a href="#about">About</a></li>
-      <li><a href="#contact">Contact</a></li>
     </ul>
     <div style="display:flex; align-items:center; gap:18px;">
       <a href="#contact" class="nav-cta">Request a ride</a>
@@ -592,6 +592,53 @@
   </div>
 </section>
 
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div>
+      <div class="section-head" style="margin-bottom:36px;">
+        <span class="kicker">Get in touch</span>
+        <h2>Request a ride or ask a question</h2>
+        <p>Tell us where and when you need to go, and we&rsquo;ll get back to you to confirm.</p>
+      </div>
+      <div class="contact-info-item">
+        <h4>Email</h4>
+        <p>rides@jkjgroups.com</p>
+      </div>
+      <div class="contact-info-item">
+        <h4>Service area</h4>
+        <p>Elmhurst, IL and nearby DuPage County communities</p>
+      </div>
+    </div>
+    <form id="contactForm">
+      <div class="form-row">
+        <div>
+          <label for="name">Full name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+      </div>
+      <div>
+        <label for="division">I&rsquo;m interested in</label>
+        <select id="division" name="division">
+          <option>JKJ Rides &mdash; request a ride</option>
+          <option>JKJ Technology &mdash; IT consulting, apps &amp; AI</option>
+          <option>JKJ Christian Goods &mdash; online &amp; custom orders</option>
+          <option>Something else</option>
+        </select>
+      </div>
+      <div>
+        <label for="message">Pickup, destination and time (or your question)</label>
+        <textarea id="message" name="message" required></textarea>
+      </div>
+      <button type="submit" class="form-submit">Send message</button>
+      <p class="form-note" id="formStatus" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
 <section id="more">
   <div class="wrap">
     <div class="section-head">
@@ -652,57 +699,6 @@
         <p>Show up when we say we will, and do right by the person in front of us.</p>
       </div>
     </div>
-  </div>
-</section>
-
-<section class="contact" id="contact">
-  <div class="wrap">
-    <div>
-      <div class="section-head" style="margin-bottom:36px;">
-        <span class="kicker">Get in touch</span>
-        <h2>Request a ride or ask a question</h2>
-        <p>Tell us where and when you need to go, and we&rsquo;ll get back to you to confirm.</p>
-      </div>
-      <div class="contact-info-item">
-        <h4>Email</h4>
-        <p>rides@jkjgroups.com</p>
-      </div>
-      <div class="contact-info-item">
-        <h4>Phone</h4>
-        <p>Coming soon</p>
-      </div>
-      <div class="contact-info-item">
-        <h4>Service area</h4>
-        <p>Elmhurst, IL and nearby DuPage County communities</p>
-      </div>
-    </div>
-    <form id="contactForm">
-      <div class="form-row">
-        <div>
-          <label for="name">Full name</label>
-          <input type="text" id="name" name="name" required>
-        </div>
-        <div>
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required>
-        </div>
-      </div>
-      <div>
-        <label for="division">I&rsquo;m interested in</label>
-        <select id="division" name="division">
-          <option>JKJ Rides &mdash; request a ride</option>
-          <option>JKJ Technology &mdash; IT consulting, apps &amp; AI</option>
-          <option>JKJ Christian Goods &mdash; online &amp; custom orders</option>
-          <option>Something else</option>
-        </select>
-      </div>
-      <div>
-        <label for="message">Pickup, destination and time (or your question)</label>
-        <textarea id="message" name="message" required></textarea>
-      </div>
-      <button type="submit" class="form-submit">Send message</button>
-      <p class="form-note" id="formStatus" role="status" aria-live="polite"></p>
-    </form>
   </div>
 </section>
 
