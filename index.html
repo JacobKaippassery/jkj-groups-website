@@ -616,13 +616,9 @@
           <input type="text" id="name" name="name" required>
         </div>
         <div>
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="Email or phone">
+          <label for="contact">Phone or email</label>
+          <input type="text" id="contact" name="contact" required placeholder="So we can reach you">
         </div>
-      </div>
-      <div>
-        <label for="phone">Phone</label>
-        <input type="tel" id="phone" name="phone" placeholder="Phone or email above">
       </div>
       <div>
         <label for="division">I&rsquo;m interested in</label>
@@ -733,8 +729,7 @@
 
   document.getElementById('contactForm').addEventListener('submit', function(e){
     e.preventDefault();
-    if(!document.getElementById('phone').value.trim()&&!document.getElementById('email').value.trim()){document.getElementById('formStatus').textContent='Please enter a phone number or an email so we can reach you.';return;}
-    var f=this,b=f.querySelector('.form-submit'),st=document.getElementById('formStatus'),A=({'JKJ Rides':'rides','JKJ Technology':'technology','JKJ Christian Goods':'goods'}[(document.getElementById('division').value.split(' \u2014 ')[0])]||'rides')+'@jkjgroups.com',D={_subject:'Website inquiry from '+document.getElementById('name').value,_captcha:'false',_template:'table'};f.querySelectorAll('input,select,textarea').forEach(function(el){if(el.name)D[el.name]=el.value;});b.disabled=true;st.textContent='Sending...';fetch('https://formsubmit.co/ajax/'+A,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(D)}).then(function(r){if(!r.ok)throw 0;return r.json();}).then(function(){st.textContent='Thank you! We received your message and will reply soon.';f.reset();}).catch(function(){st.textContent='Sorry, that did not send. Please email '+A+' directly.';}).then(function(){b.disabled=false;});
+    var f=this,b=f.querySelector('.form-submit'),st=document.getElementById('formStatus'),A=({'JKJ Rides':'rides','JKJ Technology':'technology','JKJ Christian Goods':'goods'}[(document.getElementById('division').value.split(' \u2014 ')[0])]||'rides')+'@jkjgroups.com',D={_subject:'Website inquiry from '+document.getElementById('name').value,_captcha:'false',_template:'table'};f.querySelectorAll('input,select,textarea').forEach(function(el){if(el.name)D[el.name]=el.value;});if(/@/.test(D.contact||''))D.email=D.contact;b.disabled=true;st.textContent='Sending...';fetch('https://formsubmit.co/ajax/'+A,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(D)}).then(function(r){if(!r.ok)throw 0;return r.json();}).then(function(){st.textContent='Thank you! We received your message and will reply soon.';f.reset();}).catch(function(){st.textContent='Sorry, that did not send. Please email '+A+' directly.';}).then(function(){b.disabled=false;});
   });
 </script>
 
