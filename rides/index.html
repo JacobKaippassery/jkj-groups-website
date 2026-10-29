@@ -69,6 +69,10 @@
   .section-head h2{font-size:clamp(1.75rem, 3vw, 2.3rem); line-height:1.15;}
   .section-head p{margin-top:16px; font-size:1.03rem; color:rgba(247,245,239,0.78);}
 
+  .contact a[href^="tel:"]{color:inherit; text-decoration:none;}
+  .business{border-bottom:1px solid var(--line);}
+  .biz-list{list-style:none; padding:0; margin:0 0 28px; display:grid; gap:14px; max-width:720px;}
+  .biz-list li{padding-left:18px; border-left:2px solid var(--line); line-height:1.55;}
   .services{background:var(--ink-2); border-bottom:1px solid var(--line);}
   .service-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:24px;}
   .service-card{border:1px solid var(--line); border-radius:4px; padding:28px 24px; background:var(--ink);}
@@ -207,6 +211,22 @@
   </div>
 </section>
 
+<section class="business" id="business">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">For businesses</span>
+      <h2>Rides for your customers and your team</h2>
+      <p>Auto service centers, shops and local employers: when a customer drops off a car or an employee needs a way to work, we handle the ride. Set up a one-time trip or a standing arrangement.</p>
+    </div>
+    <ul class="biz-list">
+      <li><strong>Customer drop-off and pick-up.</strong> A ride home while the car is in the shop, and back when it's ready.</li>
+      <li><strong>Employee rides.</strong> Regular or one-off transport to and from work.</li>
+      <li><strong>Simple scheduling.</strong> One contact for your front desk. Tell us the time and place.</li>
+    </ul>
+    <a href="#contact" class="btn-ghost">Ask about business rides</a>
+  </div>
+</section>
+
 <section class="how" id="how">
   <div class="wrap">
     <div class="section-head">
@@ -237,24 +257,6 @@
   </div>
 </section>
 
-<section class="area" id="area">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="kicker">Where we serve</span>
-      <h2>Elmhurst & the surrounding area</h2>
-    </div>
-    <p class="area-body">JKJ Rides currently serves Elmhurst and nearby DuPage County communities. If you're just outside this list, reach out anyway — we may still be able to help.</p>
-    <ul class="area-tags">
-      <li>Elmhurst</li>
-      <li>Oak Brook</li>
-      <li>Villa Park</li>
-      <li>Lombard</li>
-      <li>Addison</li>
-      <li>Glen Ellyn</li>
-    </ul>
-  </div>
-</section>
-
 <section class="contact" id="contact">
   <div class="wrap">
     <div>
@@ -269,7 +271,7 @@
       </div>
       <div class="contact-info-item">
         <h4>Phone</h4>
-        <p>Coming soon</p>
+        <p><a href="tel:+13472516456">(347) 251-6456</a></p>
       </div>
       <div class="contact-info-item">
         <h4>Service area</h4>
@@ -295,6 +297,7 @@
             <option>Errand run</option>
             <option>Scheduled transport</option>
             <option>Group & event ride</option>
+            <option>Business ride (auto shop, employer)</option>
           </select>
         </div>
         <div>
@@ -309,6 +312,24 @@
       <button type="submit" class="form-submit">Request a ride</button>
       <p class="form-note" id="formStatus" role="status" aria-live="polite"></p>
     </form>
+  </div>
+</section>
+
+<section class="area" id="area">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Where we serve</span>
+      <h2>Elmhurst & the surrounding area</h2>
+    </div>
+    <p class="area-body">JKJ Rides currently serves Elmhurst and nearby DuPage County communities. If you're just outside this list, reach out anyway — we may still be able to help.</p>
+    <ul class="area-tags">
+      <li>Elmhurst</li>
+      <li>Oak Brook</li>
+      <li>Villa Park</li>
+      <li>Lombard</li>
+      <li>Addison</li>
+      <li>Glen Ellyn</li>
+    </ul>
   </div>
 </section>
 
